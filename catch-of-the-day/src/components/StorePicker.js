@@ -3,9 +3,11 @@ import { getFunName } from '../helpers';
 
 class StorePicker extends React.Component {
   myInput = React.createRef();
+
   goToStore = e => {
     e.preventDefault();
-    console.log(this);
+    const storeName = this.myInput.current.value;
+    this.props.history.push(`/store/${storeName}`);
   }
 
   render() {
