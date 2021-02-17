@@ -4,7 +4,7 @@ import Order from './Order';
 import Inventory from './Inventory';
 import sampleFishes from '../sample-fishes.js';
 import Fish from './Fish'
-import fishes from '../sample-fishes.js';
+
 
 class App extends React.Component {
   state = {
@@ -47,7 +47,7 @@ class App extends React.Component {
               )}
             </ul>
         </div>
-        <Order />
+        <Order fishes={this.state.fishes} order={this.state.order}/>
         <Inventory addFish ={this.addFish} loadSamplesFishes={this.loadSamplesFishes}/>
       </div>
     )
