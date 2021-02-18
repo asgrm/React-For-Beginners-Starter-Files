@@ -1,7 +1,6 @@
 import React from 'react';
 import { formatPrice } from '../helpers';
 
-
 class Order extends React.Component {
   renderOrder = (key) => {
     const fish = this.props.fishes[key];
@@ -16,10 +15,8 @@ class Order extends React.Component {
     return <li key={key}>
       {count} lbs {fish.name}
       {formatPrice(fish.price * count)}
+      <button onClick={()=>this.props.removeFromOrder(key)}>&times;</button>
       </li>;
-    
-
-
   } 
 
   render() {
@@ -35,7 +32,6 @@ class Order extends React.Component {
       }
       
     }, 0);
-    
     
     return (
       <div className="order-wrap">
