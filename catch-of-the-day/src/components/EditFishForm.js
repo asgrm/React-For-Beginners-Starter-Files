@@ -1,7 +1,20 @@
 import React  from 'react';
+import PropTypes from 'prop-types';
 
 
 class EditFishForm extends React.Component {
+  static propTypes = {
+    deleteFish: PropTypes.func,
+    fish: PropTypes.shape({
+      desc: PropTypes.string,
+      image: PropTypes.string,
+      name: PropTypes.string,
+      price: PropTypes.number,
+      status: PropTypes.string
+    }),
+    index: PropTypes.string,
+    updateFish: PropTypes.func,
+  }
 
   handleChange = (e) => {
     const updatedFish = { 
@@ -17,7 +30,7 @@ class EditFishForm extends React.Component {
       <div className="fish-edit">
         <input type="text" name="name" onChange={this.handleChange} value={this.props.fish.name}/>
         <input type="text" name="price" onChange={this.handleChange} value={this.props.fish.price}/>
-        <select name="status" onChange={this.handleChange} alue={this.props.fish.status}>
+        <select name="status" onChange={this.handleChange} value={this.props.fish.status}>
           <option value="available">Fresh!</option>
           <option value="unavailable">Sold Out!</option>
         </select>
